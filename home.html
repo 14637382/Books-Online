@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://use.fontawesome.com/be1ba39dfe.js"></script>
+<link rel="stylesheet" href="styles.css">
+<title>Book Zone</title>
+</head>
+<body>
+<nav class="navbar">
+<div class="nav-right">
+<li><a href="/home.html">Home</a></li>
+<li><a href="/products.html">Products</a></li>
+<li><a href="/About.html">About</a></li>
+    <!-- Other content -->
+    <button id="logoutButton" style="position: absolute; top: 10px; right: 10px;">Logout</button>
+</div>
+</nav>
+<div class="section-1">
+<div class="Section-1-text">
+<center><h1>Welcome to Book Zone</h1>
+<p>You can find out yours book here.</p>
+<a href="/products.html" class="btn">Explore Here <i class="fa faarrow-right" aria-hidden="true"></i> </a>
+</center>
+</div>
+</div>
+<div class="section-2">
+<h2>Featured Products</h2>
+<!-- <a href="#"><img src="./images/img_2.jpg" alt=""> -->
+<div class="gallery">
+<div class="image-holder">
+<a href="#">
+<img src="t5.jpg" alt="img-1">
+</a>
+</div>
+16
+<div class="image-holder">
+<a href="#">
+<img src="r1.jpg" alt="img-2">
+</a>
+</div>
+<div class="image-holder">
+<a href="#">
+<img src="c5.jpg" alt="img-3">
+</a>
+</div>
+<div class="image-holder">
+<a href="#">
+<img src="a1.jpeg" alt="img-4">
+</a>
+</div>
+<div class="image-holder">
+<a href="#">
+<img src="a2.jpeg" alt="img-5">
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="section-4">
+<h2>Featured Brands</h2>
+<div class="brand">
+<img src="brand1.png" alt="">
+</div>
+<div class="brand">
+<img src="brand3.png" alt="">
+</div>
+<div class="brand">
+<img src="brand4.png" alt="">
+</div>
+<div class="brand">
+<img src="brand5.png" alt="">
+</div>
+<!-- section-5 contact us -->
+<div class="section-5">
+<h2>Contact Us :</h2>
+<!-- <h3>Leave us a message or suggestion:</h3> -->
+<div class="column">
+    <form id="contactForm" action="/home.html">
+<label for="fname">First Name</label>
+<input type="text" id="fname" name="firstname"
+placeholder="Your name..">
+<label for="lname">Last Name</label>
+<input type="text" id="lname" name="lastname" placeholder="Your 
+last name..">
+<label for="country">Country</label>
+<select id="country" name="country">
+<option value="india">India</option>
+18
+<option value="australia">Australia</option>
+<option value="canada">Canada</option>
+<option value="usa">USA</option>
+</select>
+<label for="subject">Subject</label>
+<textarea id="subject" name="subject" placeholder="Write
+something.." style="height:170px"></textarea>
+<input type="submit" value="Submit">
+</form>
+<script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent the default form submission
+  
+      // Display a popup dialog
+      alert('Your response has been saved, and our team will contact you soon.');
+  
+      window.location.href = "/home.html"; // Redirect to the index.html page
+    });    
+  </script>
+</div>
+</div>
+<script>
+    window.onload = function() {
+      if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+        // If the user is not logged in, redirect to the login page
+        window.location.href = "/index.html";
+      }
+    };
+  </script>
+  <script>
+    document.getElementById('logoutButton').addEventListener('click', function() {
+      sessionStorage.removeItem('isLoggedIn'); // Clear the isLoggedIn flag from sessionStorage
+      window.location.href = "/index.html"; // Redirect to login.html
+    });
+  </script>
+  
+  
+</body>
+</html>
