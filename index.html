@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="login.css">
+  <title>CSS Login Screen Tutorial</title>
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+</head>
+<body>
+  <nav class="navbar">
+    
+  </nav>
+  <div class="login-page">
+    <div class="form">
+      <div class="login">
+        <div class="login-header">
+          <h3>LOGIN</h3>
+          <p>Please enter your credentials to login.</p>
+        </div>
+      </div>
+      <form class="login-form" id="loginForm" onsubmit="return validateForm()">
+        <input type="text" id="username" placeholder="username"/>
+        <input type="password" id="password" placeholder="password"/>
+        <button type="submit">Login</button>        
+      </form>
+    </div>
+  </div>
+
+  <script>
+    var users = {
+      "manthan": "sawant",
+      "atharv": "keluskar",
+      "aditya": "mali"
+      // Add more users as needed
+    };
+  
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+  
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+  
+      if (users[username] === password) {
+        sessionStorage.setItem('isLoggedIn', 'true'); // Set the isLoggedIn flag upon successful login
+        window.location.replace("/home.html"); // Redirect to index.html
+      } else {
+        alert('Invalid username or password!');
+      }
+    });
+  </script>
+  <script>
+    function login() {
+    // Perform login validation
+    // If login is successful:
+    sessionStorage.setItem('isLoggedIn', 'true');
+    // Redirect to index.html
+    window.location.href = "/home.html";
+  }
+  </script>
+  <script>
+    window.onload = function() {
+      if (sessionStorage.getItem('isLoggedIn') === 'true') {
+        window.location.href = "/home.html"; // Redirect to homepage
+      }
+    };
+  </script>
+  
+  
+</body>
+</html>
